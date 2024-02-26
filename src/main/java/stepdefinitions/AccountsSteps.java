@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -20,18 +21,20 @@ import io.cucumber.java.en.When;
 	@Given("user is on the home page")
 	public void user_is_on_the_home_page() {
 		driver = new ChromeDriver();
-	//	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		String Actual = driver.findElement(By.id("home_Tab")).getText();
 		Assert.assertEquals("Home", Actual);
 	}
 
 	@When("user clicks on the accounts link")
 	public void user_clicks_on_the_accounts_link() {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.findElement(By.id("Account_Tab")).click();
 	}
 
 	@Then("account page should be displayed")
 	public void account_page_should_be_displayed() {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     String Actual = driver.findElement(By.xpath("//h2[@class='pageDescription']")).getText();
     String Expected = "Accounts Home Page";
     	Assert.assertEquals( Expected, Actual);
@@ -82,6 +85,8 @@ import io.cucumber.java.en.When;
 		String Expected = "AccountName";
 		Assert.assertEquals( Expected, Actual);
 	}
-
+	
+	
+		
 
 }

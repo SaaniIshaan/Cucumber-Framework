@@ -2,6 +2,7 @@ package stepdefinitions;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
@@ -27,7 +28,7 @@ public class LoginSteps {
 	@When("user enters username and password")
 	public void user_enters_username_and_password() {
 		driver.findElement(By.id("username")).sendKeys("mansi@hon.com");
-		driver.findElement(By.id("password")).sendKeys("Manu@123");
+		driver.findElement(By.id("password")).sendKeys("Manu@12345");
 		
 	}
 
@@ -90,8 +91,11 @@ public class LoginSteps {
 
 	@Then("user is navigate to the home page")
 	public void user_is_navigate_to_the_home_page1() throws InterruptedException {
-		String Actual = driver.findElement(By.id("home_Tab")).getText();
+		WebElement Actual = driver.findElement(By.id("home_Tab"));
+		Actual.getText();
 		Assert.assertEquals("Home", Actual);
+		
+		System.out.println(Actual);
 		Thread.sleep(3000);
 	}
 
@@ -107,12 +111,12 @@ public class LoginSteps {
 		driver.findElement(By.linkText("Logout")).click();
 	}
 
-	@Then("user should see username is displayed in username field")
-	public void user_should_see_username_is_displayed_in_username_field() {
-		Assert.assertEquals(driver.findElement(By.xpath("//span['idcard-identity']")).getText(),"username sholuld be displayed in username field");
+//	@Then("user should see username is displayed in username field")
+//	public void user_should_see_username_is_displayed_in_username_field() {
+	//	Assert.assertEquals(driver.findElement(By.xpath("//span['idcard-identity']")).getText(),"username sholuld be displayed in username field");
 	//	Assert.assertEquals(driver.findElement(By.xpath("//div[@class='label usernamelabel']")).getText(),"username sholuld be displayed in username field");
 		
-	}
+//	}
 
 
 

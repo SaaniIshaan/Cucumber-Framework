@@ -1,4 +1,4 @@
-package stepdefinitions;
+package testrunner;
 
 import org.junit.runner.RunWith;
 
@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features ={"src/main/java/featurefiles"}, glue ={"stepdefinitions"},
+@CucumberOptions(features ={"C:\\Users\\saanidhya\\eclipse-workspace\\cucumber_framework\\src\\main\\java\\featurefiles"}, glue ={"stepdefinitions"},
 plugin = {"pretty","html:target/report.html"}, tags = "@test")
 public class RunnerTestNg extends AbstractTestNGCucumberTests{
 

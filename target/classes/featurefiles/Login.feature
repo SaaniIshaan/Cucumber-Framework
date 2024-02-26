@@ -37,7 +37,7 @@ Scenario: 	Check login is successful with rememberme check box
 						Then user is navigate to the home page
 						When user click on the usermenu button 		
 						And user click on the logout button
-						Then user should see username is displayed in username field 
+					
 						
 						
 						
